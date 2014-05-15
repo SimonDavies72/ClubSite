@@ -1,3 +1,4 @@
+<!--#include virtual="/includes/security.inc"-->
 <% 
    Session("Auth1") = "N" 
 
@@ -10,13 +11,12 @@
 		
       ' The session count allows us (if we wish) to stop users multiple login attempts  
       Session("LoginCount") = Session("LoginCount") + 1
-
-         If sPassword = "cabiN3t" Then           
+         If sPassword = password Then    
             Session("Auth1") = "Y" 
             If Request.QueryString("nav") <> "" then
                Response.Redirect Request.QueryString("nav")
             Else
-	  Session("LoginCount") = 0
+               Session("LoginCount") = 0
 
                Response.Redirect "default.asp" 
             End If

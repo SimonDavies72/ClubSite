@@ -1,3 +1,4 @@
+<!--#include virtual="/includes/security.inc"-->
 <% 
    Session("Auth") = "N" 
 
@@ -11,7 +12,7 @@
       ' The session count allows us (if we wish) to stop users multiple login attempts  
       Session("LoginCount") = Session("LoginCount") + 1
 
-         If sPassword = "nutshell" Then           
+         If sPassword = filePassword Then           
             Session("Auth") = "Y" 
             If Request.QueryString("nav") <> "" then
                Response.Redirect Request.QueryString("nav")

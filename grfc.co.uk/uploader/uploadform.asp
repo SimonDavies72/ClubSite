@@ -1,5 +1,4 @@
-<%@ Language=VBScript%>
-<%Option explicit%>
+
 <%
    if Not Session("Auth") = "Y" then
       Response.Redirect "gmrfc_login.asp?nav=" & Request.ServerVariables("SCRIPT_NAME")
@@ -23,7 +22,6 @@ Dim bannerType, alert, alertMessage
 	%>
 	<!-- #include file = "config.asp" -->	
 	<%
-	
 	strMessage = Request.QueryString ("msg")
 	
 '--------------------------------------------
@@ -155,7 +153,7 @@ Sub BuildFileList(strFolder)
     Dim oFS, oFolder, intNoOfFiles, FileName
 
     Set oFS = Server.CreateObject("Scripting.FileSystemObject")
-    Set oFolder = oFS.getFolder(strFolder)
+    Set oFolder = oFS.getFolder(Server.MapPath(strFolder))
     %>
     <table border="0" width="100%" bgcolor="#99CC99" cellspacing="0" cellpadding="2">
 
