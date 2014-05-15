@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<rss version="2.0">
+
+<channel>
+
+<title>Business contact directory</title>
+<link>http://www.grfc.co.uk</link>
+<description></description>
+<language>en-gb</language>
+<copyright>Copyright: (C) Guildfordians RFC</copyright>
+
+<image>
+	<url>http://www.grfc.co.uk/nav_images/crest_3d_w.jpg</url>
+	<title>Business contact directory</title>
+	<link>http://www.grfc.co.uk/bcd.asp</link>
+</image>
+<item>
+	<bus_name>Altitude Business Systems</bus_name>
+	<busdesc_s>Web development</busdesc_s>
+	<busdesc_l>Altitude is a web development company based in Richmond, London. We build websites, applications and back-office systems for start-up and established companies.</busdesc_l>
+	<contact_name></contact_name>
+	<contact_phone></contact_phone>
+	<contact_email_name></contact_email_name>
+	<contact_email_domain></contact_email_domain>
+	<contact_url>www.altitudesystems.co.uk</contact_url>
+	<member_name></member_name>
+	<member_agegroup>sponsor</member_agegroup>
+	<special></special>
+	<posted>05/12/09</posted>
+</item>
+<item>
+	<bus_name>Callards</bus_name>
+	<busdesc_s>Independent property agents</busdesc_s>
+	<busdesc_l></busdesc_l>
+	<contact_name></contact_name>
+	<contact_phone></contact_phone>
+	<contact_email_name></contact_email_name>
+	<contact_email_domain></contact_email_domain>
+	<contact_url>www.callards.net</contact_url>
+	<member_name></member_name>
+	<member_agegroup>sponsor</member_agegroup>
+	<special></special>
+	<posted>05/12/09</posted>
+</item>
+<item>
+	<bus_name>Canterworth Systems Ltd</bus_name>
+	<busdesc_s></busdesc_s>
+	<busdesc_l></busdesc_l>
+	<contact_name></contact_name>
+	<contact_phone></contact_phone>
+	<contact_email_name></contact_email_name>
+	<contact_email_domain></contact_email_domain>
+	<contact_url>www.canterworth.com</contact_url>
+	<member_name></member_name>
+	<member_agegroup>sponsor</member_agegroup>
+	<special></special>
+	<posted>05/12/09</posted>
+</item>
+
+<item>
+	<bus_name>CTS (Guildford) Ltd</bus_name>
+	<busdesc_s>Air conditioning systems</busdesc_s>
+	<busdesc_l>CTS are commercial air-conditioning specialists who service and maintain all types of air-conditioning equipment from a single split system to large VRV and chiller systems.</busdesc_l>
+	<contact_name></contact_name>
+	<contact_phone></contact_phone>
+	<contact_email_name></contact_email_name>
+	<contact_email_domain></contact_email_domain>
+	<contact_url>http://www.ctsguildford.co.uk/</contact_url>
+	<member_name></member_name>
+	<member_agegroup>sponsor</member_agegroup>
+	<special></special>
+	<posted>20/04/10</posted>
+</item>
+
+<item>
+	<bus_name>Downs Solicitors</bus_name>
+	<busdesc_s>Solicitors &amp; notaries</busdesc_s>
+	<busdesc_l>We serve both business and private clients in Surrey, nationally and internationally, and have strength in depth in all key areas of law relevant to our clients.</busdesc_l>
+	<contact_name></contact_name>
+	<contact_phone></contact_phone>
+	<contact_email_name></contact_email_name>
+	<contact_email_domain></contact_email_domain>
+	<contact_url>www.downslaw.co.uk</contact_url>
+	<member_name></member_name>
+	<member_agegroup>sponsor</member_agegroup>
+	<special></special>
+	<posted>05/12/09</posted>
+</item>
+<item>
+	<bus_name>Faculty of Management &amp; Law</bus_name>
+	<busdesc_s></busdesc_s>
+	<busdesc_l>The Faculty of Management and Law combines the expertise of the  School of Management and the School of Law.</busdesc_l>
+	<contact_name></contact_name>
+	<contact_phone></contact_phone>
+	<contact_email_name></contact_email_name>
+	<contact_email_domain></contact_email_domain>
+	<contact_url>www.surrey.ac.uk/fml/</contact_url>
+	<member_name></member_name>
+	<member_agegroup>sponsor</member_agegroup>
+	<special></special>
+	<posted>05/12/09</posted>
+</item>
+<item>
+	<bus_name>Henlys Mortgage Services</bus_name>
+	<busdesc_s></busdesc_s>
+	<busdesc_l>We provide private and corporate clients with truly independent financial advice.</busdesc_l>
+	<contact_name></contact_name>
+	<contact_phone></contact_phone>
+	<contact_email_name></contact_email_name>
+	<contact_email_domain></contact_email_domain>
+	<contact_url>www.sampson-mortgages.co.uk</contact_url>
+	<member_name></member_name>
+	<member_agegroup>sponsor</member_agegroup>
+	<special></special>
+	<posted>05/12/09</posted>
+</item>
+<item>
+	<bus_name>The Jade Group</bus_name>
+	<busdesc_s></busdesc_s>
+	<busdesc_l>Wholesale distributors in Stationery, Toys, Greeting Cards and Seasonal products</busdesc_l>
+	<contact_name>Jeremy Meckiffe</contact_name>
+	<contact_phone>01420 472922</contact_phone>
+	<contact_email_name>jeremy.meckiffe</contact_email_name>
+	<contact_email_domain>gmail.com</contact_email_domain>
+	<contact_url>www.thejadegroup.co.uk</contact_url>
+	<member_name></member_name>
+	<member_agegroup>sponsor</member_agegroup>
+	<special></special>
+	<posted>06/03/11</posted>
+</item>
+<item>
+	<bus_name>JMG Electrical</bus_name>
+	<busdesc_s></busdesc_s>
+	<busdesc_l></busdesc_l>
+	<contact_name></contact_name>
+	<contact_phone></contact_phone>
+	<contact_email_name></contact_email_name>
+	<contact_email_domain></contact_email_domain>
+	<contact_url>www.jmg-electrical.com</contact_url>
+	<member_name></member_name>
+	<member_agegroup>sponsor</member_agegroup>
+	<special></special>
+	<posted>05/12/09</posted>
+</item>
+</channel>
+</rss>
