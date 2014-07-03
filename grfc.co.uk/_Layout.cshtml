@@ -1,4 +1,7 @@
 ﻿<!DOCTYPE html>
+@{
+    var svc = new AppService();
+}
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>@Page.Title</title>
@@ -10,8 +13,8 @@
     <meta name="copyright" content="2011, Guildfordians RFC" />
 
     <link rel="SHORTCUT ICON" href="http://www.grfc.co.uk/favicon.ico" />
-    <link rel="STYLESHEET" href="~/includes/grfc_2012.css?q=1" type="text/css" />
-    <link rel="STYLESHEET" href="~/Content/themes/base/jquery-ui.css" type="text/css" />
+    <link rel="STYLESHEET" href="/includes/grfc_2012.css?q=1" type="text/css" />
+    <link rel="STYLESHEET" href="/Content/themes/base/jquery-ui.css" type="text/css" />
 
     <script type="text/javascript" src="/includes/grfc.js"></script>
     <script src="/Scripts/jquery-2.0.3.js"></script>
@@ -22,7 +25,13 @@
 <body marginwidth="0" marginheight="0" leftmargin="0" topmargin="0" bgcolor="#eeeeee">
     <form id="form1" runat="server">
         <div>
-            <asp:Label ID="AlertLabel" runat="server" class='bannerAlert' Height='100%' Width="100%" Visible="false"></asp:Label>
+        @{
+        var message = svc.GetSiteSettings();
+        if (!String.IsNullOrEmpty(message.SiteHeaderMessage))
+        {
+            <span class='bannerAlert' Height='100%' Width="100%" ></span>
+        }
+        }
             <a name="top"></a>
             <table width="100%" cellpadding="0" cellspacing="0">
 
