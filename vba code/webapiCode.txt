@@ -6,6 +6,8 @@ Public Database_Checkpoint_Directory As String
 
 Public SendEmail As Boolean
 
+Public Const sRotaURL As String = "http://www.grfc.co.uk/api/Rota?type=xml"
+
 Sub CreateRegisters()
 Call Registers(False)
 End Sub
@@ -1014,17 +1016,15 @@ End Sub
 Function InvokeWSForRotaXml()
  'Declare our working variables
     Dim sMsg As String
-    Dim sURL As String
     Dim sEnv As String
     'Set and Instantiate our working objects
     Set ObjHTTP = New MSXML2.XMLHTTP
-    sURL = "http://localhost:49995/api/Rota?type=xml"
     
     'we invoke the web service
     'use this code snippet to invoke a web service which requires authentication
     'ObjHTTP.Open "Post", sURL, False, "username", "password"
     'We use this code snippet to invoke a web service that doesn't require any user authentication
-    ObjHTTP.Open "Get", sURL, False
+    ObjHTTP.Open "Get", sRotaURL, False
     ObjHTTP.setRequestHeader "Content-Type", "text/xml"
     ObjHTTP.send (sEnv)
     InvokeWSForRotaXml = ObjHTTP.responseText
@@ -1068,7 +1068,7 @@ DutyRota_Week2 = ""
 DutyRota_Week3 = ""
 
 Next_Sundays_Date = Format(DateAdd("d", (7 - (Weekday(Now()))) + 1, Now()), "dd-mmm-yyyy")
-Next_Sundays_Date = "08-Sep-2013"
+'Next_Sundays_Date = "08-Sep-2013"
 'GoTo bye:
 
 '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
