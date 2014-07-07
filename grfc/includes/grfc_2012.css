@@ -6,6 +6,12 @@
     padding: 10px;
     
 }
+
+body {
+    background-color:#eee;
+    margin:0px;
+}
+
 .newsbox .frame {
     height: 100px;      /* equals max image height */
     line-height: 100px;

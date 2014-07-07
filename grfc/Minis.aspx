@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="Minis.aspx.cs" Inherits="Minis" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeBehind="Minis.aspx.cs" Inherits="Minis" %>
 <%@ Import Namespace="System.Collections.Generic" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">

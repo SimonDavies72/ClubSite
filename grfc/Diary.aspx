@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="Diary.aspx.cs" Inherits="Diary" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeBehind="Diary.aspx.cs" Inherits="Diary" %>
 <%@ Import Namespace="System.Collections.Generic" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">

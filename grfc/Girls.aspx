@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="Girls.aspx.cs" Inherits="Girls" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeBehind="Girls.aspx.cs" Inherits="Girls" %>
 <%@ Import Namespace="System.Collections.Generic" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
