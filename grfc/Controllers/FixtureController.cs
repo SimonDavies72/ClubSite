@@ -19,9 +19,16 @@ namespace grfc.Controllers
         [Route("api/fixtures/{ageGroup}")]
         public IEnumerable<DiaryFixture> Get(string ageGroup)
         {
-            AgeGroup ag = (AgeGroup)Enum.Parse(typeof(AgeGroup), ageGroup);
-            var svc = new AppService();
-            return svc.GetAgeGroupDiary(ag);
+            try
+            {
+                AgeGroup ag = (AgeGroup)Enum.Parse(typeof(AgeGroup), ageGroup);
+                var svc = new AppService();
+                return svc.GetAgeGroupDiary(ag);
+            }
+            catch
+            {
+                return new List<DiaryFixture>();
+            }
         }
 
         // GET api/<controller>/5

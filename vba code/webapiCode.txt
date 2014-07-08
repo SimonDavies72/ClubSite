@@ -247,7 +247,7 @@ For AgeGroup_Email_Addresses_Cnt = 0 To 999
    AgeGroup_Email_Addresses(AgeGroup_Email_Addresses_Cnt) = ""
 Next
 
-Call Read_Age_Group_Fixtures(AgeGroup_Fixtures, Age_Group$)
+Call Read_Age_Group_Fixtures(AgeGroup_Fixtures, Age_Group_Shortened)
 
 
 RegFile& = 1
@@ -1032,16 +1032,43 @@ Function InvokeWSForRotaXml()
     Set ObjHTTP = Nothing
 End Function
 
-Sub InvokeWS()
+Function InvokeWSForFixtureXml(ageGroup As String)
+ 'Declare our working variables
+    Dim sMsg As String
+    Dim sEnv As String
+    'Set and Instantiate our working objects
+    Set ObjHTTP = New MSXML2.XMLHTTP
+    Dim sFixtureUrl As String
+    sFixtureUrl = "http://www.grfc.co.uk/api/fixtures/" & ageGroup & "?type=xml"
+    'we invoke the web service
+    'use this code snippet to invoke a web service which requires authentication
+    'ObjHTTP.Open "Post", sURL, False, "username", "password"
+    'We use this code snippet to invoke a web service that doesn't require any user authentication
+    ObjHTTP.Open "Get", sFixtureUrl, False
+    ObjHTTP.setRequestHeader "Content-Type", "text/xml"
+    ObjHTTP.send (sEnv)
+    InvokeWSForFixtureXml = ObjHTTP.responseText
+    'clean up code
+    Set ObjHTTP = Nothing
+End Function
+
+Sub InvokeWSTest()
     Dim xml As String
     xml = InvokeWSForRotaXml()
     Dim domDoc As New DOMDocument
-    Dim rotaItem As IXMLDOMElement
-    Dim dateItem As IXMLDOMNodeList
     domDoc.loadXML (xml)
     MsgBox (xml)
 End Sub
-
+Sub InvokeFixtureWSTest()
+    Dim xml As String
+    xml = InvokeWSForFixtureXml("U13")
+    Dim domDoc As New DOMDocument
+    domDoc.loadXML (xml)
+    MsgBox (xml)
+    xml = InvokeWSForFixtureXml("U16")
+    domDoc.loadXML (xml)
+    MsgBox (xml)
+End Sub
 Sub DoDiary()
     Dim w1 As String
     Dim w2 As String
@@ -1105,10 +1132,10 @@ Date3 = "#" & Date3 & "#"
 Dim rotaXml As String
 rotaXml = InvokeWSForRotaXml()
 Dim domDoc As New DOMDocument
-Dim rotaItem As IXMLDOMElement
-Dim dateItem As IXMLDOMNodeList
 domDoc.loadXML (rotaXml)
 
+Dim rotaItem As IXMLDOMElement
+Dim dateItem As IXMLDOMNodeList
 For Each rotaItem In domDoc.documentElement.getElementsByTagName("RotaItem")
     Dim itemDate As String
     Dim ageGroup As String
@@ -1143,6 +1170,40 @@ Err_Handler:
 End
 End Sub
 
+Sub ReadFixtures()
+    Dim AgeGroup_Fixtures(20) As String
+
+    Call Read_Age_Group_Fixtures(AgeGroup_Fixtures, "GIRLS")
+    Erase AgeGroup_Fixtures
+    Call Read_Age_Group_Fixtures(AgeGroup_Fixtures, "MICROS")
+    Erase AgeGroup_Fixtures
+    Call Read_Age_Group_Fixtures(AgeGroup_Fixtures, "U6S")
+    Erase AgeGroup_Fixtures
+    Call Read_Age_Group_Fixtures(AgeGroup_Fixtures, "U7S")
+    Erase AgeGroup_Fixtures
+    Call Read_Age_Group_Fixtures(AgeGroup_Fixtures, "U8S")
+    Erase AgeGroup_Fixtures
+    Call Read_Age_Group_Fixtures(AgeGroup_Fixtures, "U9S")
+    Erase AgeGroup_Fixtures
+    Call Read_Age_Group_Fixtures(AgeGroup_Fixtures, "U10S")
+    Erase AgeGroup_Fixtures
+    Call Read_Age_Group_Fixtures(AgeGroup_Fixtures, "U11S")
+    Erase AgeGroup_Fixtures
+    Call Read_Age_Group_Fixtures(AgeGroup_Fixtures, "U12S")
+    Erase AgeGroup_Fixtures
+    Call Read_Age_Group_Fixtures(AgeGroup_Fixtures, "U13S")
+    Erase AgeGroup_Fixtures
+    Call Read_Age_Group_Fixtures(AgeGroup_Fixtures, "U14S")
+    Erase AgeGroup_Fixtures
+    Call Read_Age_Group_Fixtures(AgeGroup_Fixtures, "U15S")
+    Erase AgeGroup_Fixtures
+    Call Read_Age_Group_Fixtures(AgeGroup_Fixtures, "U16S")
+    Erase AgeGroup_Fixtures
+    Call Read_Age_Group_Fixtures(AgeGroup_Fixtures, "U17S")
+    Erase AgeGroup_Fixtures
+
+    
+End Sub
 Sub Read_Age_Group_Fixtures(ByRef AgeGroup_Fixtures, ByVal Age_Group$)
 
 '''''''''''Exit Sub
@@ -1150,16 +1211,15 @@ Sub Read_Age_Group_Fixtures(ByRef AgeGroup_Fixtures, ByVal Age_Group$)
 Dim Next_Sundays_Date As String
 Dim AgeGroup_Fixtures_Cnt As Integer
 Dim Age_Group_Test$
-Dim SQL$
+
 
 Dim Date1 As String
 Dim Date2 As String
 Dim Date3 As String
 
 Next_Sundays_Date = Format(DateAdd("d", (7 - (Weekday(Now()))) + 1, Now()), "dd-mmm-yyyy")
+'Next_Sundays_Date = "08-Sep-2013"
 AgeGroup_Fixtures_Cnt = 0
-SQL$ = ""
-
 
 
 Date1 = Next_Sundays_Date
@@ -1169,17 +1229,10 @@ Date3 = Format(Date3, "dd-mmm-yyyy")
 Date1 = "#" & Date1 & "#"
 Date3 = "#" & Date3 & "#"
 
-GoTo bye:
-
-
-bye:
 
 '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 'Read the Duty Rota for the next 3 Sundays.
 '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-
-
-
 
 Age_Group_Test$ = UCase(Trim(Age_Group$))
 If Left$(Age_Group_Test$, 5) = "GIRLS" Then
@@ -1190,40 +1243,34 @@ Select Case Age_Group_Test$
    Case "GIRLS": Exit Sub
    Case "MICROS": Exit Sub
    Case "U6S": Exit Sub
-   Case "U7S", "U8S", "U9S", "U10S", "U11S", "U12S": SQL$ = "SELECT Date as FixtureDate, FixtureMinisHA, FixtureMinisDetail from Diary Where Date >= " & Date1 & " and Date <= " & Date3
-   Case "U13S": SQL$ = "SELECT Date as FixtureDate, FixtureU13HA, FixtureU13Detail from Diary Where Date >= " & Date1 & " and Date <= " & Date3
-   Case "U14S": SQL$ = "SELECT Date as FixtureDate, FixtureU14HA, FixtureU14Detail from Diary Where Date >= " & Date1 & " and Date <= " & Date3
-   Case "U15S": SQL$ = "SELECT Date as FixtureDate, FixtureU15HA, FixtureU15Detail from Diary Where Date >= " & Date1 & " and Date <= " & Date3
-   Case "U16S": SQL$ = "SELECT Date as FixtureDate, FixtureU16HA, FixtureU16Detail from Diary Where Date >= " & Date1 & " and Date <= " & Date3
-   Case "U17S": SQL$ = "SELECT Date as FixtureDate, FixtureU17HA, FixtureU17Detail from Diary Where Date >= " & Date1 & " and Date <= " & Date3
-
+   Case "U7S", "U8S", "U9S", "U10S", "U11S", "U12S":
+      Age_Group_Test$ = "Minis"
+   Case Else
+      Age_Group_Test$ = Left$(Age_Group_Test$, Len(Age_Group_Test$) - 1)
 End Select
 
-If SQL$ = "" Then
-   'No SQL created
-   Exit Sub
-End If
+Dim fixtureXml As String
+fixtureXml = InvokeWSForFixtureXml(Age_Group_Test$)
+Dim domDoc As New DOMDocument
+domDoc.loadXML (fixtureXml)
 
-Exit Sub
-
-'Read the access Db.
-Dim rst_Dy As DAO.Recordset
-Dim db_Dy As DAO.Database
-Set db_Dy = OpenDatabase(Database_Temp_Directory & "diary.mdb")
-
-Set rst_Dy = db_Dy.OpenRecordset(SQL$)
-Do While Not rst_Dy.EOF
-
-   If IsNull(rst_Dy.Fields(2).Value) = False Then
-      If Trim(rst_Dy.Fields(2).Value) <> "" Then
+Dim fixtureDetail As String
+Dim fixtureDate As String
+Dim fixtureItem As IXMLDOMElement
+For Each fixtureItem In domDoc.documentElement.getElementsByTagName("DiaryFixture")
+   fixtureDetail = fixtureItem.getElementsByTagName("FixtureDetail").Item(0).Text
+   fixtureDate = Left(fixtureItem.getElementsByTagName("FixtureDate").Item(0).Text, 10)
+   fixtureDate = Format(fixtureDate, "dd-mmm-yyyy")
+   If Not IsNull(fixtureDetail) Then
+      If Trim(fixtureDetail) <> "" Then
          'Fixture Found, load into array
          If AgeGroup_Fixtures_Cnt < 15 Then
-            AgeGroup_Fixtures(AgeGroup_Fixtures_Cnt) = rst_Dy.Fields(0).Value & " - " & Trim(rst_Dy.Fields(2).Value)
-            If UCase(Trim(rst_Dy.Fields(2).Value)) <> "HOLIDAY" Then
-               If Trim(rst_Dy.Fields(1).Value) = "H" Then
+            AgeGroup_Fixtures(AgeGroup_Fixtures_Cnt) = fixtureDate & " - " & fixtureDetail
+            If UCase(Trim(fixtureDetail)) <> "HOLIDAY" Then
+               If Trim(fixtureHA) = "H" Then
                   AgeGroup_Fixtures(AgeGroup_Fixtures_Cnt) = AgeGroup_Fixtures(AgeGroup_Fixtures_Cnt) & " ( Home )"
                End If
-               If Trim(rst_Dy.Fields(1).Value) = "A" Then
+               If Trim(fixtureHA) = "A" Then
                   AgeGroup_Fixtures(AgeGroup_Fixtures_Cnt) = AgeGroup_Fixtures(AgeGroup_Fixtures_Cnt) & " ( Away )"
                End If
             End If
@@ -1231,20 +1278,13 @@ Do While Not rst_Dy.EOF
          End If
       End If
    End If
-      
-   rst_Dy.MoveNext
-Loop
 
-rst_Dy.Close
-Set rst_Dy = Nothing
-db_Dy.Close
-Set db_Dy = Nothing
+Next
 
 Exit Sub
 
 Err_Handler:
     MsgBox "Error : " & Err.Number & vbCrLf & "Description : " & Err.Description, vbCritical
-    Resume bye
 
 End Sub
 
