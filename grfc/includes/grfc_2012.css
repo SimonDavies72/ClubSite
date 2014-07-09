@@ -34,12 +34,13 @@ h1
 }
 h2
 {
-    font-size:15px;
-    font-weight:normal;
-    color:#900;
-    margin-top: 2px;
+    font-size: 15px;
+    font-weight: normal;
+    color: #900;
+    padding-top: 5px;
     margin-bottom: 5px;
-
+    border-top: 1px solid #eee;
+    margin-top: 10px;
 }
 a
 {
@@ -326,6 +327,13 @@ li:hover ul {
 }
 
 .news-content {
-    border-bottom: 1px solid #eee;
+    
     margin-bottom: 5px;
+}
+.expando a{
+    color:#999;
+    text-decoration:none;
+}
+.expando a:hover{
+    text-decoration:underline;
 }
