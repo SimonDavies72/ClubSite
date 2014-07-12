@@ -44,6 +44,15 @@
     <Reference Include="Dapper">
       <HintPath>..\packages\Dapper.1.26\lib\net45\Dapper.dll</HintPath>
     </Reference>
+    <Reference Include="Elmah">
+      <HintPath>..\packages\elmah.corelibrary.1.2.2\lib\Elmah.dll</HintPath>
+    </Reference>
+    <Reference Include="Elmah.Contrib.WebApi">
+      <HintPath>..\packages\Elmah.Contrib.WebApi.1.0.9.0\lib\net45\Elmah.Contrib.WebApi.dll</HintPath>
+    </Reference>
+    <Reference Include="Elmah.Mvc">
+      <HintPath>..\packages\Elmah.MVC.2.1.1\lib\net40\Elmah.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="RouteDebugger">
       <HintPath>..\packages\routedebugger.2.1.4.0\lib\net40\RouteDebugger.dll</HintPath>
@@ -52,11 +61,19 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.1.2\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.1.2\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Abstractions" />
@@ -72,17 +89,11 @@
     </Reference>
     <Reference Include="System.Net.Http">
     </Reference>
-    <Reference Include="System.Net.Http.Formatting, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.0.0\lib\net45\System.Net.Http.Formatting.dll</HintPath>
-    </Reference>
     <Reference Include="System.Net.Http.WebRequest">
     </Reference>
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.Helpers.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.Http, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.0.0\lib\net45\System.Web.Http.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Http.WebHost, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.0.0\lib\net45\System.Web.Http.WebHost.dll</HintPath>
@@ -125,54 +136,63 @@
   <ItemGroup>
     <Compile Include="admin\AdminToolbar.ascx.cs">
       <DependentUpon>AdminToolbar.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="admin\AdminToolbar.ascx.designer.cs">
       <DependentUpon>AdminToolbar.ascx</DependentUpon>
     </Compile>
     <Compile Include="admin\ContactEdit.aspx.cs">
       <DependentUpon>ContactEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="admin\ContactEdit.aspx.designer.cs">
       <DependentUpon>ContactEdit.aspx</DependentUpon>
     </Compile>
     <Compile Include="admin\Contacts.aspx.cs">
       <DependentUpon>Contacts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="admin\Contacts.aspx.designer.cs">
       <DependentUpon>Contacts.aspx</DependentUpon>
     </Compile>
     <Compile Include="admin\Diary.aspx.cs">
       <DependentUpon>Diary.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="admin\Diary.aspx.designer.cs">
       <DependentUpon>Diary.aspx</DependentUpon>
     </Compile>
     <Compile Include="admin\Message.aspx.cs">
       <DependentUpon>Message.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="admin\Message.aspx.designer.cs">
       <DependentUpon>Message.aspx</DependentUpon>
     </Compile>
     <Compile Include="admin\News.aspx.cs">
       <DependentUpon>News.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="admin\News.aspx.designer.cs">
       <DependentUpon>News.aspx</DependentUpon>
     </Compile>
     <Compile Include="admin\NewsEdit.aspx.cs">
       <DependentUpon>NewsEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="admin\NewsEdit.aspx.designer.cs">
       <DependentUpon>NewsEdit.aspx</DependentUpon>
     </Compile>
     <Compile Include="admin\Rota.aspx.cs">
       <DependentUpon>Rota.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="admin\Rota.aspx.designer.cs">
       <DependentUpon>Rota.aspx</DependentUpon>
     </Compile>
     <Compile Include="admin\SocialDiary.aspx.cs">
       <DependentUpon>SocialDiary.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="admin\SocialDiary.aspx.designer.cs">
       <DependentUpon>SocialDiary.aspx</DependentUpon>
@@ -199,60 +219,71 @@
     <Compile Include="Controllers\FixtureController.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Diary.aspx.cs">
       <DependentUpon>Diary.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Documents.aspx.cs">
       <DependentUpon>Documents.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Documents.aspx.designer.cs">
       <DependentUpon>Documents.aspx</DependentUpon>
     </Compile>
     <Compile Include="Girls.aspx.cs">
       <DependentUpon>Girls.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="includes\Sponsors.ascx.designer.cs">
       <DependentUpon>Sponsors.ascx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="MatchReports.aspx.cs">
       <DependentUpon>MatchReports.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="MatchReports.aspx.designer.cs">
       <DependentUpon>MatchReports.aspx</DependentUpon>
     </Compile>
     <Compile Include="Minis.aspx.cs">
       <DependentUpon>Minis.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Newsletters.aspx.cs">
       <DependentUpon>Newsletters.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Newsletters.aspx.designer.cs">
       <DependentUpon>Newsletters.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.master.cs">
       <DependentUpon>Site.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Site.master.designer.cs">
       <DependentUpon>Site.master</DependentUpon>
     </Compile>
     <Compile Include="Social.aspx.cs">
       <DependentUpon>Social.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Social.aspx.designer.cs">
       <DependentUpon>Social.aspx</DependentUpon>
     </Compile>
     <Compile Include="Youth.aspx.cs">
       <DependentUpon>Youth.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Content Include="about.asp" />
     <Compile Include="Old_App_Code\AgeGroup.cs" />
@@ -260,7 +291,9 @@
     <Compile Include="Old_App_Code\Contact.cs" />
     <Compile Include="Old_App_Code\DiaryDate.cs" />
     <Compile Include="Old_App_Code\DiaryFixture.cs" />
-    <Compile Include="Old_App_Code\DiaryPage.cs" />
+    <Compile Include="Old_App_Code\DiaryPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Old_App_Code\NewsItem.cs" />
     <Compile Include="Controllers\RotaController.cs" />
     <Compile Include="Old_App_Code\RotaItem.cs" />
@@ -291,6 +324,7 @@
     </Compile>
     <Compile Include="includes\Sponsors.ascx.cs">
       <DependentUpon>Sponsors.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Content Include="App_Data\grfc.mdb" />
