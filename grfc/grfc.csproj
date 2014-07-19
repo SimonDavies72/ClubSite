@@ -260,6 +260,7 @@
       <DependentUpon>Minis.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="NewsController.cs" />
     <Compile Include="Newsletters.aspx.cs">
       <DependentUpon>Newsletters.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
