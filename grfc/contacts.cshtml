@@ -6,26 +6,16 @@
         {
 
             output.Append("<TR><TD CLASS='tablecontent'>" + db.Title + "</TD>");
-            if (db.Photo != "")
+            if (String.IsNullOrWhiteSpace(db.Photo) || db.Photo == "none")
             {
-                if (db.Photo != "none")
-                {
+                output.Append("<TD CLASS='tablecontent'><IMG SRC='photos/officials_photos/shy.jpg'>&nbsp;" + db.Name + "</TD>");
+            }
+            else{
                     output.Append("<TD CLASS='tablecontent'><A HREF='photos/officials_photos/high_res/");
                     output.Append(db.Photo);
                     output.Append("' TARGET='new'><IMG SRC='photos/officials_photos/" + db.Photo + "' BORDER='0' onmouseover='this.T_WIDTH=200; return escape(enlarge)'></A>&nbsp;");
                     output.Append(db.Name);
                     output.Append("</TD>");
-                }
-                else
-                {
-                    output.Append("<TD CLASS='tablecontent'><IMG SRC='photos/officials_photos/grey.jpg'>&nbsp;");
-                    output.Append(db.Name);
-                    output.Append("</TD>");
-                }
-            }
-            else
-            {
-                output.Append("<TD CLASS='tablecontent'><IMG SRC='photos/officials_photos/shy.jpg'>&nbsp;" + db.Name + "</TD>");
             }
 
             output.Append("<TD CLASS='tablecontent'>" + db.Phone + "</TD>");

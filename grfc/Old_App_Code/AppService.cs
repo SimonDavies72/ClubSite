@@ -101,7 +101,7 @@ public class AppService
         using (OleDbConnection cn = new OleDbConnection(connectionString))
         {
             cn.Open();
-            var sql = String.Format(@"select ContactId,Title,Name,Phone,Email from Contacts 
+            var sql = String.Format(@"select ContactId,Title,Name,Phone,Email,Photo from Contacts 
                     where AgeGroup='Committee' AND Title Like '%{0}%' 
                     Order By ContactID", ageGroup);
             return cn.Query<Contact>(sql, new {});
@@ -113,7 +113,7 @@ public class AppService
         using (OleDbConnection cn = new OleDbConnection(connectionString))
         {
             cn.Open();
-            var sql = @"select ContactId,Title,Name,Phone,Email from Contacts 
+            var sql = @"select ContactId,Title,Name,Phone,Email,Photo from Contacts 
                     where AgeGroup='Committee' 
                     Order By ContactID";
             return cn.Query<Contact>(sql, new {});
@@ -126,7 +126,7 @@ public class AppService
         {
             cn.Open();
           
-            var sql = @"select ContactId,Title,Name,Phone,Email from Contacts 
+            var sql = @"select ContactId,Title,Name,Phone,Email,Photo from Contacts 
                     where AgeGroup='Other'
                     Order By ContactID";
             return cn.Query<Contact>(sql, new {});
@@ -138,8 +138,8 @@ public class AppService
         using (OleDbConnection cn = new OleDbConnection(connectionString))
         {
             cn.Open();
-          
-            var sql = @"select ContactId,Title,Name,Phone,Email from Contacts 
+
+            var sql = @"select ContactId,Title,Name,Phone,Email,Photo from Contacts 
                     where AgeGroup='Micros' or AgeGroup='Minis' or AgeGroup='Youth' or AgeGroup='Girls' or AgeGroup='Senior'
                     Order By ContactID";
             return cn.Query<Contact>(sql, new {});
@@ -151,7 +151,7 @@ public class AppService
         {
             cn.Open();
             string ageGroupSql = string.Join(", ", ageGroups.Select(a => "'" + a + "'").ToArray());
-            var sql = String.Format(@"select ContactId,Title,Name,Phone,Email from Contacts 
+            var sql = String.Format(@"select ContactId,Title,Name,Phone,Email,Photo from Contacts 
                     where AgeGroup in ({0})
                     Order By ContactID", ageGroupSql);
             return cn.Query<Contact>(sql, new {});

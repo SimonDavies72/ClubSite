@@ -777,12 +777,12 @@
     <Content Include="documents\Old Guildfordians_logo.eps" />
     <Content Include="documents\Standing Order Mandate Stoke Park RFC.docx" />
     <Content Include="documents\tour_booking_form06.rtf" />
-    <Content Include="nav_images\Thumbs.db" />
     <Content Include="Default.cshtml" />
     <Content Include="Areas\RouteDebugger\Views\Web.config" />
     <Content Include="Areas\RouteDebugger\Views\RouteDebugger\Index.cshtml" />
     <Content Include="contacts.cshtml" />
     <None Include="Properties\PublishProfiles\Local.pubxml" />
+    <None Include="Properties\PublishProfiles\Local7.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
