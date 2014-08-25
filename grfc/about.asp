@@ -154,11 +154,11 @@
         </p>
         <p>
             If in doubt please check with the relevant age group manager to check timings, please
-            see the&nbsp;<a href="contacts.aspx#age">contacts page</a> for their details.
+            see the&nbsp;<a href="contacts.cshtml#age">contacts page</a> for their details.
         </p>
 
         <p>
-            If you would like to know more contact our club secretary (see <a href="contacts.aspx">
+            If you would like to know more contact our club secretary (see <a href="contacts.cshtml">
                 contacts page</a> for details).
         </p>
 
@@ -190,7 +190,7 @@
         </p>
 
         <p>
-            If you would like to know more, phone or email our membership secretary (see <a href="contacts.aspx">
+            If you would like to know more, phone or email our membership secretary (see <a href="contacts.cshtml">
                 contacts page</a> for details).
         </p>
 
@@ -250,7 +250,7 @@
         <p>
             We are always happy to receive and hopefully answer your queries. Queries regarding
             the club can be referred to any of the people on the club contacts list. (click
-            <a href="contacts.aspx">here</a> to view)
+            <a href="contacts.cshtml">here</a> to view)
         </p>
 
         <p><a class="static-link" href="about.asp#top">back to top</a></p>

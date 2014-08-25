@@ -64,7 +64,7 @@ end if
 			<a href="/">Home</a>
 		</li>
 		<li>
-			<a href="/contacts.aspx">Contacts</a>
+			<a href="/contacts.cshtml">Contacts</a>
 		</li>
 		<li>
 			<a href="/about.asp">About us</a>

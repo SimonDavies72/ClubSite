@@ -48,7 +48,7 @@
 
 <P><A CLASS="heading" NAME="contacts">Girls contacts</A></P>
 
-<P><I>NB. for a full list of contacts including photos, see the <A HREF="contacts.aspx">Contacts</A> page</I></P>
+<P><I>NB. for a full list of contacts including photos, see the <A HREF="contacts.cshtml">Contacts</A> page</I></P>
 
 <P><TABLE WIDTH="100%" CELLSPACING="2">
 

@@ -1,0 +1,105 @@
+﻿@functions{
+    string RenderContactRows(IEnumerable<Contact> contacts)
+    {
+        var output = new System.Text.StringBuilder();
+        foreach (Contact db in contacts)
+        {
+
+            output.Append("<TR><TD CLASS='tablecontent'>" + db.Title + "</TD>");
+            if (db.Photo != "")
+            {
+                if (db.Photo != "none")
+                {
+                    output.Append("<TD CLASS='tablecontent'><A HREF='photos/officials_photos/high_res/");
+                    output.Append(db.Photo);
+                    output.Append("' TARGET='new'><IMG SRC='photos/officials_photos/" + db.Photo + "' BORDER='0' onmouseover='this.T_WIDTH=200; return escape(enlarge)'></A>&nbsp;");
+                    output.Append(db.Name);
+                    output.Append("</TD>");
+                }
+                else
+                {
+                    output.Append("<TD CLASS='tablecontent'><IMG SRC='photos/officials_photos/grey.jpg'>&nbsp;");
+                    output.Append(db.Name);
+                    output.Append("</TD>");
+                }
+            }
+            else
+            {
+                output.Append("<TD CLASS='tablecontent'><IMG SRC='photos/officials_photos/shy.jpg'>&nbsp;" + db.Name + "</TD>");
+            }
+
+            output.Append("<TD CLASS='tablecontent'>" + db.Phone + "</TD>");
+
+            if (db.Email != "")
+            {
+                output.Append("<TD CLASS='tablecontent'>" + Environment.NewLine + "<script language=javascript type='text/javascript'>var name = '" + db.Email + "@' + domain;");
+                output.Append(Environment.NewLine + @"document.write('<a href=\""mailto:' + name + '"">' + name + '</a>');");
+                output.Append(Environment.NewLine + "</script></TD></TR>");
+            }
+            else
+                output.Append("<TD CLASS='tablecontent'></TD></TR>");
+
+        }
+        return output.ToString();
+    }
+}
+@{
+    Page.Title = "Guildfordians RFC";
+    Layout = "_Layout.cshtml";
+
+    var svc = new AppService();
+}
+
+<div class="textbox">
+
+    <p>
+        <a class="static-link" href="contacts.cshtml#committee">Committee</a>
+        <a class="static-link" href="contacts.cshtml#age">Age group contacts</a>
+        <a class="static-link" href="contacts.cshtml#other">Other contacts</a>
+    </p>
+
+    <p>
+        <i>President</i>: <b>Dr J M Cox</b><br>
+        <i>Vice President</i>: <b>Robin Hughes</b>
+    </p>
+
+    <p><a class="heading" name="committee">Committee - @System.Configuration.ConfigurationManager.AppSettings["Season"] season</a></p>
+
+    <p>
+        <table width="100%" cellspacing="2">
+
+            <tr><td class="tableheading" width="38%">Title</td><td class="tableheading" width="19%">Name</td><td class="tableheading" width="15%">Telephone</td><td class="tableheading">Email</td></tr>
+
+            
+            
+          @{
+
+
+            var appService = new AppService();
+            var committee = appService.GetAllCommitteeContacts();
+            }
+           @Html.Raw(RenderContactRows(committee))
+
+            
+        </table>
+    </p><p><a class='static-link' href='contacts.cshtml#top'>back to top</a></p><p>
+        <a class='heading' name='age'>Age group contacts - @System.Configuration.ConfigurationManager.AppSettings["Season"] season</a></p>
+    <p>
+        <table width='100%' cellspacing='2'>
+            <tr><td class='tableheading' width='38%'>Title</td><td class='tableheading' width='19%'>Name</td><td class='tableheading' width='15%'>Telephone</td><td class='tableheading'>Email</td></tr>
+            @Html.Raw(RenderContactRows(appService.GetAllAgeGroupContacts()))
+        </table>
+    </p><p><a class='static-link' href='contacts.cshtml#top'>back to top</a></p><p>
+        <a class='heading' name='other'>Other contacts - @System.Configuration.ConfigurationManager.AppSettings["Season"] season</a></p>
+    <p>
+        <table width='100%' cellspacing='2'>
+            <tr><td class='tableheading' width='38%'>Title</td><td class='tableheading' width='19%'>Name</td><td class='tableheading' width='15%'>Telephone</td><td class='tableheading'>Email</td></tr>
+            @Html.Raw(RenderContactRows(appService.GetOtherContacts()))
+
+        </table>
+    </p>
+
+    <p><a class="static-link" href="contacts.cshtml#top">back to top</a></p>
+
+</div>
+
