@@ -45,7 +45,7 @@ Guildfordians run two festivals each year in October and March. The dates of our
 <P>Typically we have 1,500 players attending from ages U7s to U12s, from across Surrey and the wider region.</P>
 <P>We are very proud of the positive feedback our festival receives. Whatever the weather (and we have had the full range from wet and cold to warm and sunny), and win or lose, it is our aim to ensure that all the players have a good day of rugby and go home happy.</P>
 <P>From 2012, all of our festivals will be both an A and a B level festival. Clubs may enter either the A festival, the B festival or both. Please submit a separate entry form for A and B. It is our intention that the level of teams taking part should correspond to their Surrey play level.</P>
-<P>If you have any questions or comments, please contact our festival organiser (see <A HREF="contacts.asp" TARGET="new">contacts page</A> for details).</P>
+<P>If you have any questions or comments, please contact our festival organiser (see <A HREF="contacts.aspx" TARGET="new">contacts page</A> for details).</P>
 <P>Entry is by way of our festival entry form only accompanied by payment. Entries are dealt with on a first-come, first-served basis and are subject to the discretion of Guildfordians RFC. Entry forms can be downloaded from here (please ensure you have the correct form):</P>
 
 <P><A  CLASS="static-link" HREF="festivals.asp#top">back to top

@@ -52,7 +52,7 @@ Cranfordians Colts is an amalgamation of the Guildfordians U18s plus Cranleigh's
 
 <P><A CLASS="heading" NAME="contacts">Contacts for Guildfordians Youth</A></P>
 
-<P><I>NB. for a full list of contacts including photos, see the <A HREF="contacts.asp">Contacts</A> page</I></P>
+<P><I>NB. for a full list of contacts including photos, see the <A HREF="contacts.aspx">Contacts</A> page</I></P>
 
 <P><TABLE WIDTH="100%" CELLSPACING="2">
 
