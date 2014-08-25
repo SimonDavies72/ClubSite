@@ -827,6 +827,7 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Scripts\jquery-2.0.3.min.map" />
     <Content Include="Site.master" />
+    <Content Include="sponsors.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
