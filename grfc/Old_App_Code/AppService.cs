@@ -108,6 +108,43 @@ public class AppService
         }
     }
 
+    public IEnumerable<Contact> GetAllCommitteeContacts()
+    {
+        using (OleDbConnection cn = new OleDbConnection(connectionString))
+        {
+            cn.Open();
+            var sql = @"select ContactId,Title,Name,Phone,Email from Contacts 
+                    where AgeGroup='Committee' 
+                    Order By ContactID";
+            return cn.Query<Contact>(sql, new {});
+        }
+    }
+
+    public IEnumerable<Contact> GetOtherContacts()
+    {
+        using (OleDbConnection cn = new OleDbConnection(connectionString))
+        {
+            cn.Open();
+          
+            var sql = @"select ContactId,Title,Name,Phone,Email from Contacts 
+                    where AgeGroup='Other'
+                    Order By ContactID";
+            return cn.Query<Contact>(sql, new {});
+        }
+    }
+
+    public IEnumerable<Contact> GetAllAgeGroupContacts()
+    {
+        using (OleDbConnection cn = new OleDbConnection(connectionString))
+        {
+            cn.Open();
+          
+            var sql = @"select ContactId,Title,Name,Phone,Email from Contacts 
+                    where AgeGroup='Micros' or AgeGroup='Minis' or AgeGroup='Youth' or AgeGroup='Girls' or AgeGroup='Senior'
+                    Order By ContactID";
+            return cn.Query<Contact>(sql, new {});
+        }
+    }
     public IEnumerable<Contact> GetAgeGroupContacts(List<string> ageGroups)
     {
         using (OleDbConnection cn = new OleDbConnection(connectionString))
