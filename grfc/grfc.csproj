@@ -328,6 +328,10 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Content Include="ad_graphics\dynamyx.png" />
+    <Content Include="ad_graphics\dynamyx_small.png" />
+    <Content Include="ad_graphics\optegra.jpg" />
+    <Content Include="ad_graphics\optegra_small.jpg" />
     <Content Include="App_Data\grfc.mdb" />
     <Content Include="Areas\RouteDebugger\Content\rdstyle.css" />
     <Content Include="Areas\RouteDebugger\Scripts\detect.js" />

@@ -1,4 +1,4 @@
 <%
-    Response.Redirect("Default.aspx")
+    Response.Redirect("Default.cshtml")
     Response.End()
 %>
