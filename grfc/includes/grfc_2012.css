@@ -23,6 +23,19 @@ body {
     vertical-align: middle;
 }
 
+.new-diary{
+
+}
+
+.new-diary td{
+    background-color: #fff;
+    padding:5px;
+}
+
+.fixture{
+    font-weight:bold;
+}
+
 h1
 {
     font-size:20px;
@@ -108,7 +121,7 @@ TD.navlineR {background: url(navlineR.jpg)}
 TD.tableheading {color: #FFFFFF; font-weight: bold; line-height: 120%; vertical-align: top; background: #306330; text-indent: 2px}
 
 TD.home {line-height: 120%; vertical-align: bottom; background: #CCCCCC; text-indent: 1px}
-TD.tablecontent {line-height: 120%; vertical-align: bottom; background: #CCCCCC; text-indent: 1px}
+TD.tablecontent {padding:2px; background: #CCCCCC; }
 
 TD.tablecontent_curr {line-height: 120%; vertical-align: bottom; background: #CCCCCC; text-indent: 1px; border-width: 2px; border-style: solid; border-color:#000000}
 
@@ -337,3 +350,4 @@ li:hover ul {
 .expando a:hover{
     text-decoration:underline;
 }
+

@@ -90,6 +90,22 @@ public class AppService
         }
     }
 
+    public IEnumerable<DiaryFixture> GetAgeGroupDiaryNew(AgeGroup ageGroup)
+    {
+        var calendarId = 1;
+        using (OleDbConnection cn = new OleDbConnection(connectionString))
+        {
+            cn.Open();
+            var sql = String.Format(@"SELECT f.FixtureID AS DiaryId, cd.CalendarDate AS FixtureDate, f.Details AS FixtureDetail, f.HA AS FixtureHA, f.Link AS FixtureLink, f.Photos AS FixturePhotos, 
+                         f.Report AS FixtureReport, f.League AS FixtureLeague
+                         FROM (CalendarDates cd LEFT OUTER JOIN
+                                (SELECT FixtureID, CalendarDateID, AgeGroup, Details, HA, Link, Photos, Report, League
+                                   FROM  Fixtures
+                                  WHERE (AgeGroup = '{0}')) f ON f.CalendarDateID = cd.CalendarDateID)
+                         ORDER BY cd.CalendarDate", ageGroup.ToString());
+            return cn.Query<DiaryFixture>(sql, new { CalendarId = calendarId });
+        }
+    }
 
     public OleDbDataReader GetDiaryReader()
     {
@@ -157,6 +173,21 @@ public class AppService
             return cn.Query<RotaItem>(sql, new {CalendarId = calendarId});
         }
 
+    }
+
+    public IEnumerable<RotaItem> GetRota(int calendarId)
+    {
+        using (OleDbConnection cn = new OleDbConnection(connectionString))
+        {
+            cn.Open();
+            var sql = @"select CalendarDateId as DiaryId, 
+                [CalendarDate],
+                Rota 
+                from CalendarDates
+                where calendarId = @CalendarId
+                Order By CalendarDate";
+            return cn.Query<RotaItem>(sql, new { CalendarId = calendarId });
+        }
     }
 
     public void UpdateRota(int diaryId, string rota)
@@ -416,5 +447,4 @@ public class AppService
             command.ExecuteNonQuery();
         }
     }
-
 }

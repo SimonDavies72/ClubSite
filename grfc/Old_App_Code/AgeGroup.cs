@@ -14,8 +14,10 @@ public enum AgeGroup
     U15,
     U16,
     U17,
+    U18,
     GU15,
     GU18,
     Colts,
-    Social
+    Social,
+    Senior
 }

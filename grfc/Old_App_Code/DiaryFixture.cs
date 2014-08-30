@@ -16,4 +16,5 @@ public class DiaryFixture
     public string FixturePhotos { get; set; }
     public string FixtureReport { get; set; }
     public bool FixtureLeague { get; set; }
+
 }

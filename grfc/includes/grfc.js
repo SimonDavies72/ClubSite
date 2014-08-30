@@ -24,3 +24,8 @@ function stylechange(theClass){
 	    theClass.style.display = 'none';
 	}
 }
+
+function renderEmail(recipient) {
+    var name = recipient + '@' + domain;
+    document.write('<a href="mailto:' + name + '" > ' + name + ' </a > ');
+}

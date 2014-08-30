@@ -228,13 +228,6 @@
       <DependentUpon>Diary.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Documents.aspx.cs">
-      <DependentUpon>Documents.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Documents.aspx.designer.cs">
-      <DependentUpon>Documents.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Girls.aspx.cs">
       <DependentUpon>Girls.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -347,7 +340,6 @@
     <Content Include="cpp.asp" />
     <Content Include="Default.aspx" />
     <Content Include="Diary.aspx" />
-    <Content Include="Documents.aspx" />
     <Content Include="festivals.asp" />
     <Content Include="filestore.asp" />
     <Content Include="gallery.asp" />
@@ -785,6 +777,9 @@
     <Content Include="Areas\RouteDebugger\Views\Web.config" />
     <Content Include="Areas\RouteDebugger\Views\RouteDebugger\Index.cshtml" />
     <Content Include="contacts.cshtml" />
+    <Content Include="documents.cshtml" />
+    <Content Include="agegroup.cshtml" />
+    <Content Include="App_Code\GrfcHelpers.cshtml" />
     <None Include="Properties\PublishProfiles\Local.pubxml" />
     <None Include="Properties\PublishProfiles\Local7.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />

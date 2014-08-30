@@ -1,0 +1,45 @@
+﻿@{
+    string ageGroupParam = Request.Params["ageGroup"];
+    AgeGroup ageGroup = (AgeGroup)Enum.Parse(typeof(AgeGroup), ageGroupParam);
+    Page.Title = "Guildfordians RFC";
+    Layout = "_Layout.cshtml";
+    
+    var svc = new AppService();
+}
+<h2>@ageGroup.ToString()s Diary</h2>
+<table class="new-diary">
+    <tr>
+        <td class="tableheading">Date</td>
+        <td class="tableheading">Details</td>
+    </tr>
+    @foreach (var item in svc.GetAgeGroupDiaryNew(ageGroup))
+    {
+        <tr>
+            <td>@item.FixtureDate.ToShortDateString()</td>
+            <td>@item.FixtureDetail</td>
+        </tr>
+    }
+</table>
+
+<h2>Contacts for Guildfordians @ageGroup.ToString() Group</h2>
+<table width="100%" cellspacing="2">
+
+    <tr><td class="tableheading" colspan="4">Committee</td></tr>
+    <tr><td class="tableheading" width="38%">Title</td><td class="tableheading" width="19%">Name</td><td class="tableheading" width="15%">Telephone</td><td class="tableheading">Email</td></tr>
+
+    @{ 
+         var contacts = svc.GetCommitteeContacts("Senior");
+    }
+
+    @GrfcHelpers.DisplayContacts(contacts)
+</table>
+<p></p>
+    <table width='100%' cellspacing='2'>
+        <tr><td class='tableheading' colspan='4'>Group contacts</td></tr>
+        <tr><td class='tableheading' width='38%'>Title</td><td class='tableheading' width='19%'>Name</td><td class='tableheading' width='15%'>Telephone</td><td class='tableheading'>Email</td></tr>
+
+    @{
+        var contacts2 = svc.GetAgeGroupContacts(new List<string> { "Senior" });
+    }
+    @GrfcHelpers.DisplayContacts(contacts2)
+    </table>

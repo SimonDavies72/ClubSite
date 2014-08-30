@@ -21,6 +21,10 @@ namespace grfc.Controllers
         {
             AgeGroup ag = (AgeGroup)Enum.Parse(typeof(AgeGroup), ageGroup);
             var svc = new AppService();
+            if (ag == AgeGroup.Senior)
+            {
+                return svc.GetAgeGroupDiaryNew(ag);
+            }
             return svc.GetAgeGroupDiary(ag);
         }
 
