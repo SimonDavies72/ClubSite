@@ -10,7 +10,7 @@
 
                 <%
     'array for randomized ad banners
-    DIM LinkArray(4,3)
+    DIM LinkArray(6,3)
 
     LinkArray(0,1)="http://www.curchods.com/" 
     LinkArray(0,2)="Curchods"
@@ -31,6 +31,14 @@
     LinkArray(4,1)="http://www.thejadegroup.co.uk/" 
     LinkArray(4,2)="The Jade Group"
     LinkArray(4,3)="ad_graphics/jade_small.png"
+
+    LinkArray(5,1)="http://www.dynamyx.com/" 
+    LinkArray(5,2)="Dynamix"
+    LinkArray(5,3)="ad_graphics/dynamyx_small.png"
+
+    LinkArray(6,1)="http://www.optegra.com/" 
+    LinkArray(6,2)="Optegra"
+    LinkArray(6,3)="ad_graphics/optegra_small.jpg"
 
     Randomize
     NotChooseUsAgain = "#"

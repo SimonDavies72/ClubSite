@@ -115,13 +115,10 @@ end if
 						<a href="/cpp.asp">Child protection</a>
 					</li>
 					<li>
-						<a href="/structure.asp">Committee structure</a>
-					</li>
-					<li>
 						<a href="/links.asp">Links</a>
 					</li>
 					<li>
-						<a href="/Documents.aspx">Documents</a>
+						<a href="/documents.cshtml">Documents</a>
 					</li>
 					<li>
 						<a href="/Newsletters.aspx">Newsletters</a>

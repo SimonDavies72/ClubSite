@@ -1,0 +1,18 @@
+﻿@helper DisplayContacts(IEnumerable<Contact> contacts) {
+    foreach (var contact in contacts) 
+    {                    
+        <TR>
+            <TD CLASS='tablecontent'>@contact.Title</TD>
+        <TD CLASS='tablecontent'>@contact.Name </TD>
+        <TD CLASS='tablecontent'>@contact.Phone</TD>
+        @if (contact.Email != "")
+        {
+            <TD CLASS='tablecontent'><script>renderEmail('@contact.Email');</script></TD>
+        }         
+        else        
+        { 
+        <TD CLASS='tablecontent'></TD>
+        }
+    </TR>
+    }
+}

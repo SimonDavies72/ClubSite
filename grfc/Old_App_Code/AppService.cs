@@ -12,10 +12,14 @@ public class AppService
 
     public IEnumerable<DiaryDate> GetDiaryDates()
     {
+        var calendarId = 1;
         using (OleDbConnection cn = new OleDbConnection(connectionString))
         {
             cn.Open();
-            var dates = cn.Query<DiaryDate>("select DiaryId, [Date] as FixtureDate from Diary order by Date", null);
+            var dates = cn.Query<DiaryDate>(@"select DiaryId, [Date] as FixtureDate 
+            from Diary 
+            where calendarId = @CalendarId
+            order by Date", new { CalendarId = calendarId });
             return dates;
         }
     }
@@ -68,6 +72,7 @@ public class AppService
 
     public IEnumerable<DiaryFixture> GetAgeGroupDiary(AgeGroup ageGroup)
     {
+        var calendarId = 1;
         using (OleDbConnection cn = new OleDbConnection(connectionString))
         {
             cn.Open();
@@ -78,23 +83,129 @@ public class AppService
                 Fixture{0}Photos as FixturePhotos, 
                 Fixture{0}Report as FixtureReport,
                 Fixture{0}League as FixtureLeague
-            from Diary order by [Date]", ageGroup.ToString());
-            return cn.Query<DiaryFixture>(sql, new {});
+            from Diary
+            where CalendarId = @CalendarId
+            order by [Date]", ageGroup.ToString());
+            return cn.Query<DiaryFixture>(sql, new {CalendarId = calendarId});
         }
     }
 
+    public IEnumerable<DiaryFixture> GetAgeGroupDiaryNew(AgeGroup ageGroup)
+    {
+        var calendarId = 1;
+        using (OleDbConnection cn = new OleDbConnection(connectionString))
+        {
+            cn.Open();
+            var sql = String.Format(@"SELECT f.FixtureID AS DiaryId, cd.CalendarDate AS FixtureDate, f.Details AS FixtureDetail, f.HA AS FixtureHA, f.Link AS FixtureLink, f.Photos AS FixturePhotos, 
+                         f.Report AS FixtureReport, f.League AS FixtureLeague
+                         FROM (CalendarDates cd LEFT OUTER JOIN
+                                (SELECT FixtureID, CalendarDateID, AgeGroup, Details, HA, Link, Photos, Report, League
+                                   FROM  Fixtures
+                                  WHERE (AgeGroup = '{0}')) f ON f.CalendarDateID = cd.CalendarDateID)
+                         ORDER BY cd.CalendarDate", ageGroup.ToString());
+            return cn.Query<DiaryFixture>(sql, new { CalendarId = calendarId });
+        }
+    }
 
     public OleDbDataReader GetDiaryReader()
     {
+        var calendarId = 1;
         OleDbConnection cn = new OleDbConnection(connectionString);
+            cn.Open();
+            var sql = @"select * 
+                    from Diary
+                    where calendarId = @CalendarId
+                    order by [Date]";
+            var command = cn.CreateCommand();
+            command.CommandText = sql;
+            command.Parameters.Add(new OleDbParameter("@CalendarId", calendarId));
+            return command.ExecuteReader();
+    }
 
-        cn.Open();
-        var sql = @"select * from Diary order by [Date]";
-        var command = cn.CreateCommand();
-        command.CommandText = sql;
-        return command.ExecuteReader();
+    public IEnumerable<DiaryFixture> GetSocialDiary()
+    {
+        var calendarId = 1;
+        using (OleDbConnection cn = new OleDbConnection(connectionString))
+        {
+            cn.Open();
+            var sql = @"select DiaryId, [Date] as FixtureDate,
+                FixtureSocialDetail as FixtureDetail,
+                FixtureSocialLink as FixtureLink, 
+                FixtureSocialPhotos as FixturePhotos
+            from Diary 
+            where CalendarId = @CalendarId
+            and FixtureSocialDetail <> ''  order by [Date] ";
+            return cn.Query<DiaryFixture>(sql, new {CalendarId = calendarId });
+        }
+    }
+    public void UpdateSocialDiaryFixture(int diaryId, string detail, string link, string photos)
+    {
+        using (OleDbConnection cn = new OleDbConnection(connectionString))
+        {
+            cn.Open();
+            var sql = String.Format(@"update Diary
+                set Fixture{0}Detail = @FixtureDetail, 
+                Fixture{0}Link = @FixtureLink, 
+                Fixture{0}Photos = @FixturePhotos
+                where DiaryId = {1}", AgeGroup.Social.ToString(), diaryId);
+
+            var command = cn.CreateCommand();
+            command.CommandText = sql;
+            command.Parameters.AddWithValue("FixtureDetail", detail);
+            command.Parameters.AddWithValue("FixtureLink", link);
+            command.Parameters.AddWithValue("FixturePhotos", photos);
+            command.ExecuteNonQuery();
+        }
+    }
+
+    public IEnumerable<RotaItem> GetRota()
+    {
+        var calendarId = 1;
+        using (OleDbConnection cn = new OleDbConnection(connectionString))
+        {
+            cn.Open();
+            var sql = @"select DiaryId, 
+                [Date],
+                Rota 
+                from Diary
+                where calendarId = @CalendarId
+                Order By Date";
+            return cn.Query<RotaItem>(sql, new {CalendarId = calendarId});
+        }
 
     }
+
+    public IEnumerable<RotaItem> GetRota(int calendarId)
+    {
+        using (OleDbConnection cn = new OleDbConnection(connectionString))
+        {
+            cn.Open();
+            var sql = @"select CalendarDateId as DiaryId, 
+                [CalendarDate],
+                Rota 
+                from CalendarDates
+                where calendarId = @CalendarId
+                Order By CalendarDate";
+            return cn.Query<RotaItem>(sql, new { CalendarId = calendarId });
+        }
+    }
+
+    public void UpdateRota(int diaryId, string rota)
+    {
+        using (OleDbConnection cn = new OleDbConnection(connectionString))
+        {
+            cn.Open();
+            var sql = String.Format(@"update Diary
+                set Rota = @Rota
+                where DiaryId = {0}", diaryId);
+
+            var command = cn.CreateCommand();
+            command.CommandText = sql;
+            command.Parameters.AddWithValue("Rota", rota);
+            command.ExecuteNonQuery();
+        }
+    }
+
 
     public IEnumerable<Contact> GetCommitteeContacts(string ageGroup)
     {
@@ -169,36 +280,6 @@ public class AppService
         }
     }
 
-    public IEnumerable<RotaItem> GetRota()
-    {
-        using (OleDbConnection cn = new OleDbConnection(connectionString))
-        {
-            cn.Open();
-            var sql = @"select DiaryId, 
-                [Date],
-                Rota 
-                from Diary
-                Order By Date";
-            return cn.Query<RotaItem>(sql, new {});
-        }
-
-    }
-
-    public void UpdateRota(int diaryId, string rota)
-    {
-        using (OleDbConnection cn = new OleDbConnection(connectionString))
-        {
-            cn.Open();
-            var sql = String.Format(@"update Diary
-                set Rota = @Rota
-                where DiaryId = {0}", diaryId);
-
-            var command = cn.CreateCommand();
-            command.CommandText = sql;
-            command.Parameters.AddWithValue("Rota", rota);
-            command.ExecuteNonQuery();
-        }
-    }
 
     public SiteSettings GetSiteSettings()
     {
@@ -363,39 +444,6 @@ public class AppService
 
             var command = cn.CreateCommand();
             command.CommandText = sql;
-            command.ExecuteNonQuery();
-        }
-    }
-
-    public IEnumerable<DiaryFixture> GetSocialDiary()
-    {
-        using (OleDbConnection cn = new OleDbConnection(connectionString))
-        {
-            cn.Open();
-            var sql = @"select DiaryId, [Date] as FixtureDate,
-                FixtureSocialDetail as FixtureDetail,
-                FixtureSocialLink as FixtureLink, 
-                FixtureSocialPhotos as FixturePhotos
-            from Diary where FixtureSocialDetail <> ''  order by [Date] ";
-            return cn.Query<DiaryFixture>(sql, new {});
-        }
-    }
-    public void UpdateSocialDiaryFixture(int diaryId, string detail, string link, string photos)
-    {
-        using (OleDbConnection cn = new OleDbConnection(connectionString))
-        {
-            cn.Open();
-            var sql = String.Format(@"update Diary
-                set Fixture{0}Detail = @FixtureDetail, 
-                Fixture{0}Link = @FixtureLink, 
-                Fixture{0}Photos = @FixturePhotos
-                where DiaryId = {1}", AgeGroup.Social.ToString(), diaryId);
-
-            var command = cn.CreateCommand();
-            command.CommandText = sql;
-            command.Parameters.AddWithValue("FixtureDetail", detail);
-            command.Parameters.AddWithValue("FixtureLink", link);
-            command.Parameters.AddWithValue("FixturePhotos", photos);
             command.ExecuteNonQuery();
         }
     }
