@@ -280,19 +280,7 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Content Include="about.asp" />
-    <Compile Include="Old_App_Code\AgeGroup.cs" />
-    <Compile Include="Old_App_Code\AppService.cs" />
-    <Compile Include="Old_App_Code\Contact.cs" />
-    <Compile Include="Old_App_Code\DiaryDate.cs" />
-    <Compile Include="Old_App_Code\DiaryFixture.cs" />
-    <Compile Include="Old_App_Code\DiaryPage.cs">
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Old_App_Code\NewsItem.cs" />
     <Compile Include="Controllers\RotaController.cs" />
-    <Compile Include="Old_App_Code\RotaItem.cs" />
-    <Compile Include="Old_App_Code\SiteSettings.cs" />
-    <Compile Include="Old_App_Code\Sponsor.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -828,7 +816,16 @@
     <Content Include="Site.master" />
     <Content Include="sponsors.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Clubsite.Model\Clubsite.Model.csproj">
+      <Project>{1a2f75ec-787c-4342-9dfe-7115096aa045}</Project>
+      <Name>Clubsite.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Clubsite.Web\Clubsite.Web.csproj">
+      <Project>{642fc265-927d-4be6-b86f-d18872d40ccb}</Project>
+      <Name>Clubsite.Web</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
