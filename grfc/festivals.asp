@@ -118,6 +118,7 @@ Please complete one Player Registration form for each team entered and hand it t
 
 <P><A CLASS="heading" NAME="info_refs">Notes for referees</A></P>
 <p>Surrey is now moving to the New Rules of Play for under 10 and below. See <a href="http://www.rfu.com/thegame/regulations">http://www.rfu.com/thegame/regulations</a></p>
+<p>For a one-page summary: <a href="documents/GRFC 2014-15 Summary Festival Rules.pdf">GRFC 2014-15 Summary Festival Rules</a> </p>
 <P><B>Important: Safety</B></P>
 
 <P>We are keen that this tournament runs as a safe event and ask that referees and coaches are particularly diligent in enforcing the following rules from the Continuum.
