@@ -1,0 +1,85 @@
+﻿@{
+    
+
+    Layout = "~/_Layout.cshtml";
+    Page.Title = "NewsEdit";
+    AppService _svc = new AppService();
+
+    if(IsPost)
+    {
+        // save and return
+        int newsId = 0;
+        if (Request["id"] != null)
+        {
+            newsId = Convert.ToInt32(Request["id"]);
+        }
+        DateTime? archiveDate = null;
+        if (!String.IsNullOrWhiteSpace(Request["ArchiveDate"]))
+        {
+            DateTime d2;
+            bool success = DateTime.TryParse(Request["ArchiveDate"], out d2);
+            if (success) 
+            { 
+                archiveDate = d2;
+            }
+        }
+        _svc.SaveNews(newsId, Request["title"], Request.Unvalidated("detail"), archiveDate);
+
+        Response.Redirect("News.aspx");
+    }
+
+    NewsItem news = null;
+    string dateArchived = "";
+    if (Request["id"] != null)
+    {
+        int newsId = Int32.Parse(Request["id"]);
+        news = _svc.GetNewsItem(newsId);
+        if (news.DateArchived.HasValue) 
+        {
+            dateArchived = news.DateArchived.Value.ToShortDateString();
+        }
+    }
+}
+    <script type="text/javascript" src="/Content/ckeditor/ckeditor.js"></script>
+<form method="post">
+    <table>
+        <tr>
+            <td>
+                Headline:
+            </td>
+            <td>
+                <input type="text" ID="title" name="title" style="width:600px" value="@news.Headline" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Detail:
+            </td>
+            <td style="margin-left: 160px"> <textarea id="detail" name="detail" style="Height:400px;Width:600px;">@news.Detail</textarea></td>
+        </tr>
+        <tr>
+            <td>
+                Archive Date:
+            </td>
+            <td style="margin-left: 80px">
+                <input type="text" id="ArchiveDate" cssclass="date-picker" value="@dateArchived" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp;
+            </td>
+            <td style="margin-left: 80px">
+                <button ID="SaveButton" name="submit" type="submit" >Save</button>&nbsp;or&nbsp;<a href="News.aspx">Cancel</a>
+            </td>
+        </tr>
+    </table>
+</form>
+@section Scripts {
+    <script>
+        $(function() {
+            CKEDITOR.replace('detail');
+        });
+    </script>
+
+}
