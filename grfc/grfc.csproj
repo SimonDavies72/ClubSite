@@ -59,7 +59,6 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Net.Http.Formatting, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -128,6 +127,14 @@
     <Reference Include="Antlr3.Runtime">
       <Private>True</Private>
       <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="WebMatrix.Data, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.Data.3.2.2\lib\net45\WebMatrix.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="WebMatrix.WebData, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.WebData.3.2.2\lib\net45\WebMatrix.WebData.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -314,6 +321,7 @@
     <Content Include="ad_graphics\optegra.jpg" />
     <Content Include="ad_graphics\optegra_small.jpg" />
     <Content Include="App_Data\grfc.mdb" />
+    <Content Include="App_Data\grfcMembers.sdf" />
     <Content Include="Areas\RouteDebugger\Content\rdstyle.css" />
     <Content Include="Areas\RouteDebugger\Scripts\detect.js" />
     <Content Include="bcd.asp" />
@@ -348,6 +356,12 @@
     <Content Include="popup_festmap.html" />
     <Content Include="popup_lawguide.html" />
     <Content Include="popup_stokepark.html" />
+    <Content Include="admin\ManageRoles.cshtml" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\knockout-2.2.1.debug.js" />
     <Content Include="Scripts\knockout-2.2.1.js" />
     <Content Include="Youth.aspx" />
@@ -768,6 +782,18 @@
     <Content Include="documents.cshtml" />
     <Content Include="agegroup.cshtml" />
     <Content Include="App_Code\GrfcHelpers.cshtml" />
+    <Content Include="Account\AccountLockedOut.cshtml" />
+    <Content Include="Account\Confirm.cshtml" />
+    <Content Include="Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Account\ForgotPassword.cshtml" />
+    <Content Include="Account\Login.cshtml" />
+    <Content Include="Account\Logout.cshtml" />
+    <Content Include="Account\Manage.cshtml" />
+    <Content Include="Account\PasswordReset.cshtml" />
+    <Content Include="Account\Register.cshtml" />
+    <Content Include="Account\RegisterService.cshtml" />
+    <Content Include="Account\Thanks.cshtml" />
+    <Content Include="Account\_ExternalLoginsList.cshtml" />
     <None Include="Properties\PublishProfiles\Local.pubxml" />
     <None Include="Properties\PublishProfiles\Local7.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -796,7 +822,9 @@
     <Content Include="uploader\upload.css" />
     <Content Include="uploader\uploadfile.asp" />
     <Content Include="uploader\uploadform.asp" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -815,6 +843,7 @@
     <Content Include="Scripts\jquery-2.0.3.min.map" />
     <Content Include="Site.master" />
     <Content Include="sponsors.cshtml" />
+    <Content Include="_AppStart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Clubsite.Model\Clubsite.Model.csproj">
