@@ -29,17 +29,27 @@ bannerType = "minis"
 
 <P>
 Guildfordians run two festivals each year in October and March. The dates of our next festivals are:</P>
-<B>6th October 2013</B>
+<B>5th October 2014</B>
 <ul class="doc-list">
-    <li><A HREF="documents/festivalentryOct2013.pdf" TARGET="new"><IMG SRC="/images/pdficon_large.png" BORDER="0" WIDTH="32" HEIGHT="32" align="absmiddle"></a>&nbsp;
-        <A HREF="documents/festivalentryOct2013.pdf" TARGET="new">Festival entry form</A>&nbsp;
-        <a href="documents/festivalentryOct2013.docx" target="_blank">(docx version)</a>
+    <li><A HREF="documents/GRFC Festival Team Entry Form 05-10-2014.pdf" TARGET="new">
+        <IMG SRC="/images/pdficon_large.png" BORDER="0" WIDTH="32" HEIGHT="32" align="absmiddle"></a>&nbsp;
+        <A HREF="documents/GRFC Festival Team Entry Form 05-10-2014.pdf" TARGET="new">GRFC Festival Team Entry Form</A>
+    </li>
+    <li><A HREF="documents/GRFC Festival Player Registration 05-10-2014.pdf" TARGET="new">
+        <IMG SRC="/images/pdficon_large.png" BORDER="0" WIDTH="32" HEIGHT="32" align="absmiddle"></a>&nbsp;
+        <A HREF="documents/GRFC Festival Player Registration 05-10-2014.pdf" TARGET="new">GRFC Festival Player Registration Form</A>
     </li>
 </ul>
-<B>2nd March 2014</B>
+<B>8th March 2015</B>
 <ul class="doc-list">
-    <li><A HREF="documents/GRFC Festival team entry form March 2014.PDF" TARGET="new"><IMG SRC="/images/pdficon_large.png" BORDER="0" WIDTH="32" HEIGHT="32" align="absmiddle"></a>&nbsp;
-        <A HREF="documents/GRFC Festival team entry form March 2014.PDF" TARGET="new">Festival entry form</A></li>
+    <li><A HREF="documents/GRFC Festival Team Entry Form 08-03-2015.pdf" TARGET="new">
+        <IMG SRC="/images/pdficon_large.png" BORDER="0" WIDTH="32" HEIGHT="32" align="absmiddle"></a>&nbsp;
+        <A HREF="documents/GRFC Festival Team Entry Form 08-03-2015.pdf" TARGET="new">GRFC Festival Team Entry Form</A>
+    </li>
+    <li><A HREF="documents/GRFC Festival Player Registration 08-03-2015.pdf" TARGET="new">
+        <IMG SRC="/images/pdficon_large.png" BORDER="0" WIDTH="32" HEIGHT="32" align="absmiddle"></a>&nbsp;
+        <A HREF="documents/GRFC Festival Player Registration 08-03-2015.pdf" TARGET="new">GRFC Festival Player Registration Form</A>
+    </li>
 </ul>
 
 <P>Typically we have 1,500 players attending from ages U7s to U12s, from across Surrey and the wider region.</P>
@@ -48,6 +58,8 @@ Guildfordians run two festivals each year in October and March. The dates of our
 <P>If you have any questions or comments, please contact our festival organiser (see <A HREF="contacts.cshtml" TARGET="new">contacts page</A> for details).</P>
 <P>Entry is by way of our festival entry form only accompanied by payment. Entries are dealt with on a first-come, first-served basis and are subject to the discretion of Guildfordians RFC. Entry forms can be downloaded from here (please ensure you have the correct form):</P>
 
+    <p>When you are communicating with the Festival Organiser, can you please indicate the CLUB & AGE GROUP on whose behalf you are writing. This will avoid any confusion, and unnecessary delay in responding to your enquiry.</p>
+
 <P><A  CLASS="static-link" HREF="festivals.asp#top">back to top
 
 <P><A CLASS="heading" NAME="info">Further information for those attending one of our festivals</A></P>
@@ -55,21 +67,19 @@ Guildfordians run two festivals each year in October and March. The dates of our
 <P><B>Timings</B></P>
 
 <P>Registration is at 9:30 at the applicable age control desk. The festival starts at 10:00.</P>
+
+<p>With a large number of competitors and teams, please make every effort to have teams ready at the scheduled times to allow the smooth running of the event.</p>
 <P>Please make sure that you arrive in good time, remembering that parking can be quite distant (see below). Any team not ready in time to play may forfeit a match to their opponent.</P>
 
 <P><B>Player Registration</B></P>
 
-<P>A playerA player registration form can be downloaded here:<BR>
-    <ul class="doc-list">
-    <li><A HREF="documents/Player_Registration_Document.pdf" TARGET="new" class="doc-link"><IMG SRC="/images/pdficon_large.png" BORDER="0" WIDTH="32" HEIGHT="32" align="absmiddle"></A>&nbsp;<A HREF="documents/Player_Registration_Document.pdf" TARGET="new">Player registration form 
-        (pdf)</A></li>
-        </ul>
 Please complete one Player Registration form for each team entered and hand it to the age group control at the Festival.
 <P><B>Referees & Referees' Meetings</B></P>
 
 <P>Referees' meetings will take place at 9:45 at the applicable age control desk.</P>
 <P>Each team must bring one referee. Any team who fails to provide a referee may be excluded from the festival.</P>
 <P>We would ask that all referees are ready at the relevant time to referee a match - delays in the programme most often occur because the allocated referee cannot be found. Many thanks.</P>
+<p>Once we understand who is progressing from the group stage to the finals, we may require an independent referee to officiate these late matches. We have been held up previously in trying to locate such an independent referee. Can nominated referees please be prepared to be asked to assist with this.</p>
 <P>Further notes for referees <A HREF="festivals.asp#info_refs">are below</A>, please would all referees familiarise themselves with these before the tournament.</P>
 
 <P><B>Pitches</B></P>
@@ -107,7 +117,7 @@ Please complete one Player Registration form for each team entered and hand it t
 <P><A  CLASS="static-link" HREF="festivals.asp#top">back to top</A></P>
 
 <P><A CLASS="heading" NAME="info_refs">Notes for referees</A></P>
-<p>Surrey is now moving to the New Rules of Play for under 9 and below. See <a href="http://www.rfu.com/newrulesofplay">http://www.rfu.com/newrulesofplay</a></p>
+<p>Surrey is now moving to the New Rules of Play for under 10 and below. See <a href="http://www.rfu.com/thegame/regulations">http://www.rfu.com/thegame/regulations</a></p>
 <P><B>Important: Safety</B></P>
 
 <P>We are keen that this tournament runs as a safe event and ask that referees and coaches are particularly diligent in enforcing the following rules from the Continuum.

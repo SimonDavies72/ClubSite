@@ -6,7 +6,8 @@ using System.Web;
 using System.Web.UI;
 
 /// <summary>
-/// Summary description for DiaryPage
+/// DiaryPage holds the rendering code for the diary pages. It is a legacy from the classic.asp files, and needs to be dropped in favour of 
+/// standard cshtml rendering.
 /// </summary>
 public class DiaryPage: Page
 {
