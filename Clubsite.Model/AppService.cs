@@ -37,7 +37,7 @@ public class AppService
                 Fixture{0}Report as FixtureReport,
                 Fixture{0}League as FixtureLeague
             from Diary where DiaryId = @DiaryId", group.ToString());
-            var dates = cn.Query<DiaryFixture>(sql, new {DiaryId = diaryId});
+            var dates = cn.Query<DiaryFixture>(sql, new { DiaryId = diaryId });
             return dates.First();
         }
     }
@@ -82,11 +82,12 @@ public class AppService
                 Fixture{0}Link as FixtureLink, 
                 Fixture{0}Photos as FixturePhotos, 
                 Fixture{0}Report as FixtureReport,
-                Fixture{0}League as FixtureLeague
+                Fixture{0}League as FixtureLeague,
+                FixtureSocialDetail <> '' as IsSocial
             from Diary
             where CalendarId = @CalendarId
             order by [Date]", ageGroup.ToString());
-            return cn.Query<DiaryFixture>(sql, new {CalendarId = calendarId});
+            return cn.Query<DiaryFixture>(sql, new { CalendarId = calendarId });
         }
     }
 
@@ -111,15 +112,15 @@ public class AppService
     {
         var calendarId = 1;
         OleDbConnection cn = new OleDbConnection(connectionString);
-            cn.Open();
-            var sql = @"select * 
+        cn.Open();
+        var sql = @"select * 
                     from Diary
                     where calendarId = @CalendarId
                     order by [Date]";
-            var command = cn.CreateCommand();
-            command.CommandText = sql;
-            command.Parameters.Add(new OleDbParameter("@CalendarId", calendarId));
-            return command.ExecuteReader();
+        var command = cn.CreateCommand();
+        command.CommandText = sql;
+        command.Parameters.Add(new OleDbParameter("@CalendarId", calendarId));
+        return command.ExecuteReader();
     }
 
     public IEnumerable<DiaryFixture> GetSocialDiary()
@@ -135,7 +136,7 @@ public class AppService
             from Diary 
             where CalendarId = @CalendarId
             and FixtureSocialDetail <> ''  order by [Date] ";
-            return cn.Query<DiaryFixture>(sql, new {CalendarId = calendarId });
+            return cn.Query<DiaryFixture>(sql, new { CalendarId = calendarId });
         }
     }
     public void UpdateSocialDiaryFixture(int diaryId, string detail, string link, string photos)
@@ -170,7 +171,7 @@ public class AppService
                 from Diary
                 where calendarId = @CalendarId
                 Order By Date";
-            return cn.Query<RotaItem>(sql, new {CalendarId = calendarId});
+            return cn.Query<RotaItem>(sql, new { CalendarId = calendarId });
         }
 
     }
@@ -215,7 +216,7 @@ public class AppService
             var sql = String.Format(@"select ContactId,Title,Name,Phone,Email,Photo from Contacts 
                     where AgeGroup='Committee' AND Title Like '%{0}%' 
                     Order By ContactID", ageGroup);
-            return cn.Query<Contact>(sql, new {});
+            return cn.Query<Contact>(sql, new { });
         }
     }
 
@@ -227,7 +228,7 @@ public class AppService
             var sql = @"select ContactId,Title,Name,Phone,Email,Photo from Contacts 
                     where AgeGroup='Committee' 
                     Order By ContactID";
-            return cn.Query<Contact>(sql, new {});
+            return cn.Query<Contact>(sql, new { });
         }
     }
 
@@ -236,11 +237,11 @@ public class AppService
         using (OleDbConnection cn = new OleDbConnection(connectionString))
         {
             cn.Open();
-          
+
             var sql = @"select ContactId,Title,Name,Phone,Email,Photo from Contacts 
                     where AgeGroup='Other'
                     Order By ContactID";
-            return cn.Query<Contact>(sql, new {});
+            return cn.Query<Contact>(sql, new { });
         }
     }
 
@@ -253,7 +254,7 @@ public class AppService
             var sql = @"select ContactId,Title,Name,Phone,Email,Photo from Contacts 
                     where AgeGroup='Micros' or AgeGroup='Minis' or AgeGroup='Youth' or AgeGroup='Girls' or AgeGroup='Senior'
                     Order By ContactID";
-            return cn.Query<Contact>(sql, new {});
+            return cn.Query<Contact>(sql, new { });
         }
     }
     public IEnumerable<Contact> GetAgeGroupContacts(List<string> ageGroups)
@@ -265,7 +266,7 @@ public class AppService
             var sql = String.Format(@"select ContactId,Title,Name,Phone,Email,Photo from Contacts 
                     where AgeGroup in ({0})
                     Order By ContactID", ageGroupSql);
-            return cn.Query<Contact>(sql, new {});
+            return cn.Query<Contact>(sql, new { });
         }
     }
 
@@ -276,7 +277,7 @@ public class AppService
             cn.Open();
             var sql = @"select * from News 
                     Order By DateCreated desc";
-            return cn.Query<NewsItem>(sql, new {});
+            return cn.Query<NewsItem>(sql, new { });
         }
     }
 
@@ -287,7 +288,7 @@ public class AppService
         {
             cn.Open();
             var sql = @"select * from SiteSettings";
-            return cn.Query<SiteSettings>(sql, new {}).FirstOrDefault();
+            return cn.Query<SiteSettings>(sql, new { }).FirstOrDefault();
         }
     }
 
@@ -319,7 +320,7 @@ public class AppService
             var sql = String.Format(@"select ContactId,AgeGroup,Title,Name,Phone,Email 
                     from Contacts 
                     Order By ContactID");
-            return cn.Query<Contact>(sql, new {});
+            return cn.Query<Contact>(sql, new { });
         }
 
     }
@@ -332,7 +333,7 @@ public class AppService
             var sql = String.Format(@"select ContactId,AgeGroup,Title,Name,Phone,Email 
                     from Contacts 
                     where contactid = {0}", contactId);
-            return cn.Query<Contact>(sql, new {}).FirstOrDefault();
+            return cn.Query<Contact>(sql, new { }).FirstOrDefault();
         }
     }
 
@@ -380,7 +381,7 @@ public class AppService
             var sql = String.Format(@"select id, headline, detail, datecreated, datearchived 
                     from News 
                     where id = {0}", newsId);
-            return cn.Query<NewsItem>(sql, new {}).FirstOrDefault();
+            return cn.Query<NewsItem>(sql, new { }).FirstOrDefault();
         }
     }
 
@@ -444,6 +445,53 @@ public class AppService
 
             var command = cn.CreateCommand();
             command.CommandText = sql;
+            command.ExecuteNonQuery();
+        }
+    }
+
+    public void AddDiaryDate(DateTime newDate)
+    {
+        using (var cn = new OleDbConnection(connectionString))
+        {
+            cn.Open();
+
+            var command = cn.CreateCommand();
+            var sql = @"insert into diary ([Date]) values (@newDate)";
+
+            command.CommandText = sql;
+            command.Parameters.AddWithValue("newDate", newDate);
+
+            command.ExecuteNonQuery();
+        }
+    }
+
+    public void AddSocialDiaryDate(DateTime newDate)
+    {
+        using (var cn = new OleDbConnection(connectionString))
+        {
+		        cn.Open();
+
+                var command = cn.CreateCommand();
+                var sql = @"insert into diary ([Date], FixtureSocialDetail) values (@newDate, 'new social event')";
+
+                command.CommandText = sql;
+                command.Parameters.AddWithValue("newDate", newDate);
+
+                command.ExecuteNonQuery();
+	    }
+    }
+
+    public void DeleteDiaryItem(int diaryId)
+    {
+        using (var cn = new OleDbConnection(connectionString))
+        {
+            cn.Open();
+
+            var command = cn.CreateCommand();
+            var sql = "delete from diary where DiaryId = " + diaryId;
+
+            command.CommandText = sql;
+
             command.ExecuteNonQuery();
         }
     }

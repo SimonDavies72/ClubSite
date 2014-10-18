@@ -87,6 +87,25 @@ public partial class admin_Diary : System.Web.UI.Page
 
     protected void AddButton_Click(object sender, EventArgs e)
     {
+        if (!String.IsNullOrWhiteSpace(AddDateTextBox.Text))
+        {
+            DateTime newDate = DateTime.Parse(AddDateTextBox.Text);
+            svc.AddDiaryDate(newDate);
+        }
+    
+        UpdateGridView();
+    }
 
+    protected void DiaryGridView_RowDataBound(object sender, GridViewRowEventArgs e)
+    {
+        if (e.Row.RowType == DataControlRowType.DataRow)
+	    {
+		    DiaryFixture fixture = (DiaryFixture)e.Row.DataItem;
+            if (fixture.IsSocial)
+            {
+                e.Row.Cells[4].Text = "(social)";
+            }
+
+	    }
     }
 }

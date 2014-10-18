@@ -17,4 +17,5 @@ public class DiaryFixture
     public string FixtureReport { get; set; }
     public bool FixtureLeague { get; set; }
 
+    public bool IsSocial { get; set; }
 }

@@ -66,4 +66,23 @@ public partial class admin_SocialDiary : System.Web.UI.Page
 
         UpdateGridView();
     }
+
+    protected void AddButton_Click(object sender, EventArgs e)
+    {
+        if (!String.IsNullOrWhiteSpace(AddDateTextBox.Text))
+        {
+            DateTime newDate = DateTime.Parse(AddDateTextBox.Text);
+            svc.AddSocialDiaryDate(newDate);
+        }
+
+        UpdateGridView();
+    }
+
+    protected void DiaryGridView_RowDeleting(object sender, GridViewDeleteEventArgs e)
+    {
+        int diaryId = (int)DiaryGridView.DataKeys[e.RowIndex].Value;
+        svc.DeleteDiaryItem(diaryId);
+
+        UpdateGridView();
+    }
 }
