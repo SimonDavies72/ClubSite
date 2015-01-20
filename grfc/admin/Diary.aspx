@@ -17,10 +17,10 @@
 
     <asp:GridView ID="DiaryGridView" runat="server" AutoGenerateColumns="False" 
         CssClass="EditGrid" 
-        DataKeyNames="DiaryId" EnableModelValidation="True" 
+        DataKeyNames="DiaryId" 
         OnRowCancelingEdit="DiaryGridView_RowCancelingEdit" 
         OnRowEditing="DiaryGridView_RowEditing" 
-        OnRowUpdating="DiaryGridView_RowUpdating" SelectedRowStyle-CssClass="selected-row">
+        OnRowUpdating="DiaryGridView_RowUpdating" SelectedRowStyle-CssClass="selected-row" OnRowDataBound="DiaryGridView_RowDataBound">
         <Columns>
             <asp:CommandField ShowEditButton="True" />
             <asp:BoundField DataField="FixtureDate" DataFormatString="{0:d}" 
@@ -42,6 +42,8 @@
             <asp:BoundField DataField="FixturePhotos" HeaderText="Photos" />
             <asp:BoundField DataField="FixtureReport" HeaderText="Match Report" />
         </Columns>
+
+<SelectedRowStyle CssClass="selected-row"></SelectedRowStyle>
     </asp:GridView>
 <br />
 <strong>Add a new date</strong> (note this adds across all age groups)<br />

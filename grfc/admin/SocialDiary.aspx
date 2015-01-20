@@ -17,7 +17,7 @@
         DataKeyNames="DiaryId" 
         OnRowCancelingEdit="DiaryGridView_RowCancelingEdit" 
         OnRowEditing="DiaryGridView_RowEditing" 
-        OnRowUpdating="DiaryGridView_RowUpdating" SelectedRowStyle-CssClass="selected-row">
+        OnRowUpdating="DiaryGridView_RowUpdating" SelectedRowStyle-CssClass="selected-row" OnRowDeleting="DiaryGridView_RowDeleting">
         <Columns>
             <asp:CommandField ShowEditButton="True" />
             <asp:BoundField DataField="FixtureDate" DataFormatString="{0:d}" 
@@ -25,6 +25,7 @@
             <asp:BoundField DataField="FixtureDetail" HeaderText="Detail" />
             <asp:BoundField DataField="FixtureLink" HeaderText="Link" />
             <asp:BoundField DataField="FixturePhotos" HeaderText="Photos" />
+            <asp:CommandField ShowDeleteButton="True" />
         </Columns>
 
 <SelectedRowStyle CssClass="selected-row"></SelectedRowStyle>
@@ -34,7 +35,7 @@
 Date:
 <asp:TextBox ID="AddDateTextBox" runat="server" CssClass="date-picker"></asp:TextBox>
 &nbsp;&nbsp;&nbsp;
-<asp:Button ID="AddButton" runat="server" Text="Add" />
+<asp:Button ID="AddButton" runat="server" Text="Add" OnClick="AddButton_Click" />
 <br />
     <div></div>
 </asp:Content>
