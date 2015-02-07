@@ -11,7 +11,7 @@ public partial class admin_SocialDiary : System.Web.UI.Page
 
     private AgeGroup AgeGroup
     {
-        get { return AgeGroup.Social; }
+        get { return AgeGroup.SOCIAL; }
     }
 
     protected void Page_Init(object sender, EventArgs e)

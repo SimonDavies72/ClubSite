@@ -1,6 +1,6 @@
 ﻿@{
     string ageGroupParam = Request.Params["ageGroup"];
-    AgeGroup ageGroup = (AgeGroup)Enum.Parse(typeof(AgeGroup), ageGroupParam);
+    AgeGroup ageGroup = (AgeGroup)Enum.Parse(typeof(AgeGroup), ageGroupParam.ToUpper());
     Page.Title = "Guildfordians RFC";
     Layout = "_Layout.cshtml";
     

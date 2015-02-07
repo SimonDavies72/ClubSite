@@ -8,7 +8,7 @@ using System.Web;
 /// </summary>
 public enum AgeGroup
 {
-	Minis,
+	MINIS,
     U13,
     U14,
     U15,
@@ -17,7 +17,7 @@ public enum AgeGroup
     U18,
     GU15,
     GU18,
-    Colts,
-    Social,
-    Senior
+    COLTS,
+    SOCIAL,
+    SENIOR
 }

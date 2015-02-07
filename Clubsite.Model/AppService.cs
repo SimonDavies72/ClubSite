@@ -148,7 +148,7 @@ public class AppService
                 set Fixture{0}Detail = @FixtureDetail, 
                 Fixture{0}Link = @FixtureLink, 
                 Fixture{0}Photos = @FixturePhotos
-                where DiaryId = {1}", AgeGroup.Social.ToString(), diaryId);
+                where DiaryId = {1}", AgeGroup.SOCIAL.ToString(), diaryId);
 
             var command = cn.CreateCommand();
             command.CommandText = sql;

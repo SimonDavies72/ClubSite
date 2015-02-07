@@ -17,7 +17,7 @@ public partial class admin_Diary : System.Web.UI.Page
     protected void Page_Init(object sender, EventArgs e)
     {
         var items = new[]{
-                new ListItem( "Minis", AgeGroup.Minis.ToString()),
+                new ListItem( "Minis", AgeGroup.MINIS.ToString()),
                 new ListItem( "U13", AgeGroup.U13.ToString()),
                 new ListItem( "U14", AgeGroup.U14.ToString()),
                 new ListItem( "U15", AgeGroup.U15.ToString()),
