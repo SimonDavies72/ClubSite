@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 
 namespace grfc.Controllers
@@ -16,7 +13,7 @@ namespace grfc.Controllers
         }
 
         // GET api/<controller>
-        [Route("api/fixtures/{ageGroup}")]
+        [System.Web.Mvc.Route("api/fixtures/{ageGroup}")]
         public IEnumerable<DiaryFixture> Get(string ageGroup)
         {
             AgeGroup ag = (AgeGroup)Enum.Parse(typeof(AgeGroup), ageGroup.ToUpper());
