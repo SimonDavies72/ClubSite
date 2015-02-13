@@ -228,13 +228,6 @@
     <Compile Include="Areas\RouteDebugger\RouteDebuggerAreaRegistration.cs" />
     <Compile Include="Areas\RouteDebugger\RouteDebuggerConfig.cs" />
     <Compile Include="Controllers\FixtureController.cs" />
-    <Compile Include="Default.aspx.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Default.aspx.designer.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Diary.aspx.cs">
       <DependentUpon>Diary.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -338,7 +331,6 @@
     <Content Include="Content\images\glyphicons-halflings-white.png" />
     <Content Include="Content\images\glyphicons-halflings.png" />
     <Content Include="cpp.asp" />
-    <Content Include="Default.aspx" />
     <Content Include="Diary.aspx" />
     <Content Include="festivals.asp" />
     <Content Include="filestore.asp" />

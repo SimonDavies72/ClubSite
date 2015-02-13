@@ -13,7 +13,7 @@ namespace grfc.Controllers
         }
 
         // GET api/<controller>
-        [System.Web.Mvc.Route("api/fixtures/{ageGroup}")]
+        [Route("api/fixtures/{ageGroup}")]
         public IEnumerable<DiaryFixture> Get(string ageGroup)
         {
             AgeGroup ag = (AgeGroup)Enum.Parse(typeof(AgeGroup), ageGroup.ToUpper());
